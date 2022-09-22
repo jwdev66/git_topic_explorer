@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 
 import SearchBar from "../components/SearchBar";
 
-const mockedSubmitFunc = jest.fn();
+const mockedSubmitFunc = jest.fn((e) => e.preventDefault());
 
 test('search initializes with "react"', () => {
   render(<SearchBar topic="react" handleSubmit={mockedSubmitFunc} />);
@@ -12,9 +12,9 @@ test('search initializes with "react"', () => {
   expect(inputElement).toHaveValue("react");
 });
 
-test("button click submits form", () => {
+test("test form submit", () => {
   render(<SearchBar topic="react" handleSubmit={mockedSubmitFunc} />);
-  const btnElement = screen.getByRole("button");
-  userEvent.click(btnElement);
+  const inputElement = screen.getByRole("textbox");
+  userEvent.type(inputElement, "react{enter}");
   expect(mockedSubmitFunc).toHaveBeenCalled();
 });

@@ -25,7 +25,7 @@ const mockData = {
 };
 
 test("renders mock data", () => {
-  render(<TopicList data={mockData} handleSubmit={mockFunc} />);
+  render(<TopicList data={mockData} setTopic={mockFunc} />);
   const liElements = screen.getAllByLabelText("li");
   expect(liElements).toHaveLength(3);
 });

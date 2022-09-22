@@ -2,7 +2,7 @@ const TopicListItem = ({ topic, handleClick }) => {
   return (
     <li aria-label="li" onClick={() => handleClick(topic.name)}>
       <span>{topic.name} </span>
-      <span>({topic.stargazerCount})</span>
+      <span>{topic.stargazerCount}</span>
     </li>
   );
 };
@@ -10,10 +10,10 @@ const TopicListItem = ({ topic, handleClick }) => {
 function TopicsList({ data, setTopic }) {
   return (
     <>
-      <p>{data.stargazerCount}</p>
+      <h4>{data?.stargazerCount}</h4>
       <h3>Related Topics</h3>
       <ul>
-        {data.relatedTopics.map((item) => (
+        {data?.relatedTopics.map((item) => (
           <TopicListItem topic={item} key={item.id} handleClick={setTopic} />
         ))}
       </ul>

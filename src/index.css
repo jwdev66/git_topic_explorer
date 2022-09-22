@@ -14,11 +14,40 @@ code {
     monospace;
 }
 
+ul {
+  padding: 0px;
+}
+
 li {
   padding: 5px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
 }
 
 li:hover {
   color: blue;  
+  background: lightgray;
+}
+
+.search-input { 
+  font-size: 16px;   
+  width: 200px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
+}
+
+.search-button {
+  width: 80px;
+  height: 36px;  
+}
+
+.error-message {
+  color: red;
 }

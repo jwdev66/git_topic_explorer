@@ -22,7 +22,13 @@ function App() {
         <h2>Git Topic Explorer</h2>
         <SearchBar handleSubmit={handleSubmit} topic={topic} />
         {loading && <h3>Loading...</h3>}
-        {error && <h3>Something went wrong...please try again</h3>}
+        {error && (
+          <h3 className="error-message">
+            {error?.httpError?.body
+              ? JSON.parse(error?.httpError?.body).message
+              : "Something went wrong...please try again"}
+          </h3>
+        )}
         {data && <TopicList data={data.topic} setTopic={setTopic} />}
       </div>
     </div>

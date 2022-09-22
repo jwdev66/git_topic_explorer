@@ -10,11 +10,14 @@ function SearchBar({ topic, handleSubmit }) {
   return (
     <form onSubmit={(e) => handleSubmit(e, inputValue)}>
       <input
+        className="search-input"
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <button type="submit">Search</button>
+      <button className="search-button" type="submit">
+        Search
+      </button>
     </form>
   );
 }
